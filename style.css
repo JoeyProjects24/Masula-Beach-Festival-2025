@@ -530,3 +530,128 @@
                 font-size: 0.7rem;
             }
         }
+/* Parallax utility class */
+.parallax {
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Disable parallax on small screens */
+@media (max-width: 768px) {
+    .parallax {
+        background-attachment: scroll;
+    }
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('https://static.vecteezy.com/system/resources/previews/023/460/210/non_2x/lights-in-summer-beach-cafe-illustration-ai-generative-free-photo.jpg');
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.about, .highlights, .reach, .instagram {
+    padding: 80px 20px;
+    color: white;
+    text-align: center;
+}
+
+.about {
+   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://png.pngtree.com/thumb_back/fh260/background/20240327/pngtree-abstract-blur-restaurant-on-beach-at-night-image_15646876.jpg');
+    backdrop-filter: blur(5px);
+}
+
+.highlights {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://t3.ftcdn.net/jpg/07/49/53/30/360_F_749533073_rTBnkBxQoEbVEF4qgrhI1Opmign4vVlD.jpg');
+    backdrop-filter: blur(5px);
+}
+
+.reach {
+     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://t3.ftcdn.net/jpg/09/41/07/62/360_F_941076245_JdxEESc9b9TeGG7moIVJF5HWk5Qilpoc.jpg');
+    backdrop-filter: blur(5px);
+}
+
+.instagram {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://t4.ftcdn.net/jpg/09/13/78/67/360_F_913786739_xyDxJvYsYmVvPlZWdxEjk8VeiPbCiHHM.jpg');
+    backdrop-filter: blur(5px);
+    padding: 80px 0;
+}
+
+footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Add parallax class to all sections with backgrounds */
+.hero, .about, .highlights, .reach, .instagram {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Buttons and text styling */
+button {
+    background: #fff;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
