@@ -7,526 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&family=Hachi+Maru+Pop&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap" rel="stylesheet">
-
-    <style>
-        /* Global Styles */
-        :root {
-            --sky-blue: rgba(135, 206, 235, 0.8);
-            --sun-yellow: rgba(255, 215, 0, 0.8);
-            --sand-beige: rgba(245, 222, 179, 0.8);
-            --ocean-blue: rgba(30, 144, 255, 0.8);
-            --white: rgba(255, 255, 255, 0.9);
-            --glass-effect: rgba(255, 255, 255, 0.2);
-            --glass-border: rgba(255, 255, 255, 0.3);
-            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: #333;
-            line-height: 1.6;
-            font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        h1 {
-             font-family: "Pacifico", cursive;
-            font-weight: 400;
-            letter-spacing: 1px;
-        }
-        
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            margin-bottom: 30px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        h2:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--ocean-blue), var(--sun-yellow));
-            border-radius: 2px;
-        }
-        
-        h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-        
-        p {
-            margin-bottom: 20px;
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: linear-gradient(45deg, var(--sun-yellow), var(--ocean-blue));
-            color: white;
-            padding: 14px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-family: 'Quicksand', sans-serif;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .btn:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, var(--ocean-blue), var(--sun-yellow));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            color: white;
-        }
-        
-        .btn:hover:before {
-            opacity: 1;
-        }
-        
-        /* Countdown Timer */
-        .countdown-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 30px 0;
-        }
-        
-        .countdown-box {
-            background: var(--glass-effect);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 20px 15px;
-            min-width: 80px;
-            text-align: center;
-            box-shadow: var(--glass-shadow);
-        }
-        
-        .countdown-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            font-family: 'Montserrat', sans-serif;
-            color: var(--ocean-blue);
-            line-height: 1;
-        }
-        
-        .countdown-label {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #333;
-            margin-top: 5px;
-            font-family: 'Quicksand', sans-serif;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://i.pinimg.com/736x/9a/8c/35/9a8c35b9bdebbf6a519c3a91ae1172d6.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            min-height: 700px;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-        
-        .hero-content {
-            width: 100%;
-            animation: fadeInUp 1s ease;
-        }
-        
-        .hero h1 {
-            font-size: 4.5rem;
-            margin-bottom: 20px;
-            color: white;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .date-badge {
-            background: var(--glass-effect);
-            backdrop-filter: blur(10px);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            display: inline-block;
-            font-weight: bold;
-            margin-bottom: 30px;
-            font-family: "Montserrat", sans-serif;
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--glass-shadow);
-        }
-        
-        /* About Section */
-        .about {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(245, 222, 179, 0.5) 100%);
-            text-align: center;
-            backdrop-filter: blur(5px);
-        }
-        
-        .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .about-card {
-            background: var(--glass-effect);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px 30px;
-            width: 300px;
-            box-shadow: var(--glass-shadow);
-            border: 1px solid var(--glass-border);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .about-card:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .about-card i {
-            font-size: 3rem;
-            background: linear-gradient(45deg, var(--ocean-blue), var(--sun-yellow));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 20px;
-        }
-        
-        /* Highlights Section */
-        .highlights {
-            background: linear-gradient(135deg, rgba(245, 222, 179, 0.5) 0%, rgba(255, 255, 255, 0.7) 100%);
-            text-align: center;
-            backdrop-filter: blur(5px);
-        }
-        
-        .highlight-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .highlight-card {
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            border: none;
-        }
-        
-        .highlight-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-        
-        .highlight-img {
-            height: 220px;
-            overflow: hidden;
-        }
-        
-        .highlight-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-            border-radius: 0;
-        }
-        
-        .highlight-card:hover .highlight-img img {
-            transform: scale(1.1);
-        }
-        
-        .highlight-text {
-            padding: 25px;
-            text-align: left;
-        }
-        
-        /* How to Reach Section */
-        .reach {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(135, 206, 235, 0.4) 100%);
-            text-align: center;
-            backdrop-filter: blur(5px);
-        }
-        
-        .reach-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .reach-card {
-            background: var(--glass-effect);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px 30px;
-            width: 350px;
-            box-shadow: var(--glass-shadow);
-            border: 1px solid var(--glass-border);
-            transition: transform 0.3s ease;
-        }
-        
-        .reach-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .reach-card i {
-            font-size: 2.5rem;
-            background: linear-gradient(45deg, var(--ocean-blue), var(--sun-yellow));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 20px;
-        }
-        
-        /* Instagram Section */
-        .instagram {
-            background: linear-gradient(135deg, rgba(245, 222, 179, 0.5) 0%, rgba(255, 255, 255, 0.7) 100%);
-            text-align: center;
-            padding: 80px 0;
-            backdrop-filter: blur(5px);
-        }
-        
-        .instagram-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--glass-effect);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: var(--glass-shadow);
-            border: 1px solid var(--glass-border);
-        }
-        
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--ocean-blue), #0066cc);
-            color: white;
-            text-align: center;
-            padding: 60px 0 30px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        footer:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
-            opacity: 0.1;
-            z-index: 0;
-        }
-        
-        footer .container {
-            position: relative;
-            z-index: 1;
-        }
-        
-        footer h2 {
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        footer h2:after {
-            background: linear-gradient(90deg, white, var(--sun-yellow));
-        }
-        
-        .social-icons {
-            margin: 30px 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        
-        .social-icons a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: var(--glass-effect);
-            backdrop-filter: blur(5px);
-            border-radius: 50%;
-            color: white;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            border: 1px solid var(--glass-border);
-        }
-        
-        .social-icons a:hover {
-            background: var(--sun-yellow);
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .contact-info {
-            margin-top: 30px;
-        }
-        
-        .contact-info p {
-            display: inline-flex;
-            align-items: center;
-            margin: 0 15px 15px;
-            font-family: 'Quicksand', sans-serif;
-        }
-        
-        .contact-info i {
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.3rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            section {
-                padding: 60px 0;
-            }
-            
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            .countdown-box {
-                min-width: 70px;
-                padding: 15px 10px;
-            }
-            
-            .countdown-value {
-                font-size: 2rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero {
-                min-height: 600px;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .date-badge {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-            
-            .btn {
-                padding: 12px 25px;
-            }
-            
-            .countdown-box {
-                min-width: 60px;
-                padding: 12px 8px;
-            }
-            
-            .countdown-value {
-                font-size: 1.5rem;
-            }
-            
-            .countdown-label {
-                font-size: 0.7rem;
-            }
-        }
-    </style>
+<link href="https://fonts.googleapis.com/css2?family=Borel&family=DynaPuff:wght@400..700&family=Freckle+Face&family=Hachi+Maru+Pop&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Hero Section -->
@@ -535,7 +17,7 @@
             <div class="hero-content">
                 <h1>Masula Beach Festival</h1>
                 <div class="date-badge">June 6 - June 8, 2025</div>
-                <p style="font-family: Hachi Maru Pop, cursive; font-weight: 400; ">Experience the vibrant culture, delicious food, and exciting adventures at Manginapudi Beach</p>
+                <p style="font-family: "Borel, cursive; font-weight: 400; ">Experience the vibrant culture, delicious food, and exciting adventures at Manginapudi Beach</p>
                 
                 <!-- Countdown Timer -->
                 <div class="countdown-container">
@@ -571,21 +53,21 @@
             <div class="about-content">
                 <div class="about-card">
                     <i class="fas fa-calendar-alt"></i>
-                    <h3>Dates</h3>
-                    <p>June 5 to June 8, 2025</p>
+                    <h3>DATES</h3>
+                    <p class="p1">June 6 to June 8, 2025</p>
                 </div>
                 
                 <div class="about-card">
                     <i class="fas fa-map-marker-alt"></i>
-                    <h3>Location</h3>
-                    <p>Manginapudi Beach, Machilipatnam, Krishna District, Andhra Pradesh</p>
+                    <h3>LOCATION</h3>
+                    <p class="p2">Manginapudi Beach, Machilipatnam, Krishna District, Andhra Pradesh</p>
                 </div>
                 
                 <div class="about-card">
                     <i class="fas fa-clock"></i>
-                    <h3>Timings</h3>
-                    <p>6:00 AM to 9:00 PM daily</p>
-                    <p><strong>Free Entry for All</strong></p>
+                    <h3>TIMINGS</h3>
+                    <p class="p3">6:00 AM to 9:00 PM daily</p>
+                    
                 </div>
             </div>
         </div>
@@ -630,7 +112,7 @@
                 
                 <div class="highlight-card">
                     <div class="highlight-img">
-                        <img src="https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="World Record Dosa">
+                        <img src="https://images.unsplash.com/photo-1611244806964-91d204d4a2a7?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBwYXJ0eXxlbnwwfHwwfHx8MA%3D%3D" alt="World Record Dosa">
                     </div>
                     <div class="highlight-text">
                         <h3>Special Attraction</h3>
@@ -673,7 +155,7 @@
     <section class="instagram" id="instagram">
         <div class="container">
             <h2>Festival Moments</h2>
-            <p>Check out our Instagram reel from last year's festival</p>
+            <p>Check out our Instagram Page</p>
             
             <div class="instagram-container">
                 <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/masula_beach_festival2025?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:15px; margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
@@ -699,7 +181,7 @@
                                 </svg>
                             </div>
                             <div style="padding-top: 8px;">
-                                <div style="color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div>
+                                <div style="color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">Our Instagram Page</div>
                             </div>
                             <div style="padding: 12.5% 0;"></div>
                             <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
@@ -755,78 +237,9 @@
                 <p><i class="fas fa-phone"></i> +91 9876543210</p>
             </div>
             
-            <p style="margin-top: 30px;">&copy; 2025 Masula Beach Festival. All Rights Reserved.</p>
+            <p class="p4" style="margin-top: 30px;">&copy; 2025 Masula Beach Festival. All Rights Reserved.</p>
         </div>
     </footer>
-
-    <script>
-        // Countdown Timer
-        function updateCountdown() {
-            const festivalDate = new Date('June 6, 2025 00:00:00').getTime();
-            const now = new Date().getTime();
-            const distance = festivalDate - now;
-            
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
-            document.getElementById('hours').innerHTML = Math.floor(hours).toString().padStart(2, '0');
-            document.getElementById('minutes').innerHTML = Math.floor(minutes).toString().padStart(2, '0');
-            document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
-            
-            if (distance < 0) {
-                clearInterval(countdownTimer);
-                document.getElementById('days').innerHTML = '00';
-                document.getElementById('hours').innerHTML = '00';
-                document.getElementById('minutes').innerHTML = '00';
-                document.getElementById('seconds').innerHTML = '00';
-            }
-        }
-        
-        const countdownTimer = setInterval(updateCountdown, 1000);
-        updateCountdown();
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Instagram embed fallback
-        document.addEventListener('DOMContentLoaded', function() {
-            if (!document.querySelector('iframe.instagram-media')) {
-                const instagramContainer = document.querySelector('.instagram-container');
-                const fallbackHTML = `
-                    <div style="text-align: center; padding: 20px;">
-                        <p>Unable to load Instagram profile. please click on the button below to get profile:</p>
-                        <a href="https://www.instagram.com/masula_beach_festival2025?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="btn" target="_blank">View Instagram Profile</a>
-                    </div>
-                `;
-                instagramContainer.innerHTML = fallbackHTML;
-            }
-        });
-        
-        // Add animation class when elements come into view
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-        
-        document.querySelectorAll('.about-card, .highlight-card, .reach-card').forEach(card => {
-            observer.observe(card);
-        });
-    </script>
+<script src="script.js"></script>
 </body>
 </html>
